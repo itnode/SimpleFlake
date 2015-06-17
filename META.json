@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "A perl implemantation of SimpleFlake. Idea found here: https://github.com/SawdustSoftware/simpleflake",
    "author" : [
       "Patrick Simon <pas.freelance@googlemail.com>"
    ],
@@ -43,7 +43,8 @@
       "runtime" : {
          "requires" : {
             "Bytes::Random::Secure" : "0",
-            "DateTime" : "0",
+            "Math::BigInt" : "0",
+            "Time::HiRes" : "0",
             "perl" : "5.008001"
          }
       },

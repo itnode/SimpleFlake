@@ -1,14 +1,16 @@
 # NAME
 
-SimpleFlake - It's new $module
+SimpleFlake - A perl implemantation of SimpleFlake. Idea found here: https://github.com/SawdustSoftware/simpleflake
 
 # SYNOPSIS
 
     use SimpleFlake;
 
+    my $hex_flake = SimpleFlake->get_flake;
+
 # DESCRIPTION
 
-SimpleFlake is ...
+SimpleFlake is a unique ID Generation Module
 
 # LICENSE
 
