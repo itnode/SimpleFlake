@@ -5,6 +5,6 @@ use SimpleFlake;
 
 my $random = SimpleFlake->get_random(23);
 
-ok( $random, "Random Bytes " . $random . " generated" );
+ok( $random, "Random Bytes generated" );
 
 done_testing;

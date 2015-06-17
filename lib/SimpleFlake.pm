@@ -17,12 +17,13 @@ sub get_random {
 
     my ( $self, $length ) = @_;
 
-    return random_bytes_hex($length);
+    return random_bytes($length);
 }
 
-sub get_timestamp {
+sub get_millisecond_timestamp {
 
-    return localtime(time);
+    my $time = int(time) * 1000;
+    return $time;
 }
 
 1;
