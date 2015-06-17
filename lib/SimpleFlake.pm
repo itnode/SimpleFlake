@@ -20,7 +20,7 @@ sub get_random_bits {
         NonBlocking => 1,
     );
 
-    return Math::BigInt->from_bin( unpack( 'B24', $random->bytes(3) ) );
+    return Math::BigInt->from_bin( unpack( 'B*', $random->bytes(5) ) );
 }
 
 sub get_millisecond_timestamp {
