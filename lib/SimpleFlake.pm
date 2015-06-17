@@ -67,14 +67,15 @@ SimpleFlake is a unique ID Generation Module based on timestamp in milliseconds 
 
 =head1 LICENSE
 
-Copyright (C) Patrick Simon.
+Copyright (C) Jens Gassmann - Software Entwicklung.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-Patrick Simon E<lt>pas.freelance@googlemail.comE<gt>
+Jens Gassmann E<lt>jg@itnode.deE<gt>
+Patrick Simon E<lt>ps@itnode.deE<gt>
 
 =cut
 
