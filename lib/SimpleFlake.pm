@@ -53,15 +53,17 @@ __END__
 
 =head1 NAME
 
-SimpleFlake - It's new $module
+SimpleFlake - A perl implemantation of SimpleFlake. Idea found here: https://github.com/SawdustSoftware/simpleflake
 
 =head1 SYNOPSIS
 
     use SimpleFlake;
 
+    my $hex_flake = SimpleFlake->get_flake;
+
 =head1 DESCRIPTION
 
-SimpleFlake is ...
+SimpleFlake is a unique ID Generation Module
 
 =head1 LICENSE
 
