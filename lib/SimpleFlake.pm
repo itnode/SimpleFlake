@@ -53,7 +53,7 @@ __END__
 
 =head1 NAME
 
-SimpleFlake - A perl implemantation of SimpleFlake. Idea found here: https://github.com/SawdustSoftware/simpleflake
+SimpleFlake - A perl implemantation of SimpleFlake. Inspired by https://github.com/SawdustSoftware/simpleflake
 
 =head1 SYNOPSIS
 

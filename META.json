@@ -1,5 +1,5 @@
 {
-   "abstract" : "A perl implemantation of SimpleFlake. Idea found here: https://github.com/SawdustSoftware/simpleflake",
+   "abstract" : "A perl implemantation of SimpleFlake. Inspired by https://github.com/SawdustSoftware/simpleflake",
    "author" : [
       "Patrick Simon <pas.freelance@googlemail.com>"
    ],
