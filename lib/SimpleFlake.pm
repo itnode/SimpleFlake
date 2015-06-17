@@ -74,8 +74,12 @@ it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-* Jens Gassmann E<lt>jg@itnode.deE<gt>
-* Patrick Simon E<lt>ps@itnode.deE<gt>
+=over
+
+=item * Jens Gassmann E<lt>jg@itnode.deE<gt>
+=item * Patrick Simon E<lt>ps@itnode.deE<gt>
+
+=back
 
 =cut
 
