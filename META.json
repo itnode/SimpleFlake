@@ -42,6 +42,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Bytes::Random::Secure" : "0",
+            "DateTime" : "0",
             "perl" : "5.008001"
          }
       },

@@ -3,9 +3,27 @@ use 5.008001;
 use strict;
 use warnings;
 
+use DateTime;
+use Bytes::Random::Secure qw(
+    random_bytes random_bytes_base64 random_bytes_hex
+);
+
 our $VERSION = "0.01";
 
+use constant SIMPLEFLAKE_TIMESTAMP_LENGTH => 41;
+use constant SIMPLEFLAKE_RANDOM_LENGTH => 23;
 
+sub get_random {
+
+    my ( $self, $length ) = @_;
+
+    return random_bytes_hex($length);
+}
+
+sub get_timestamp {
+
+    return localtime(time);
+}
 
 1;
 __END__
