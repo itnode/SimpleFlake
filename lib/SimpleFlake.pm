@@ -13,9 +13,12 @@ our $VERSION = "0.01";
 use constant SIMPLEFLAKE_TIMESTAMP_LENGTH => 41;
 use constant SIMPLEFLAKE_RANDOM_LENGTH => 23;
 
+use constant SIMPLEFLAKE_RANDOM_SHIFT => 0;
+use constant SIMPLEFLAKE_TIMESTAMP_SHIFT => 23;
+
 sub get_random {
 
-    my ( $self, $length ) = @_;
+    my ( $class, $length ) = @_;
 
     return random_bytes($length);
 }
@@ -24,6 +27,31 @@ sub get_millisecond_timestamp {
 
     my $time = int(time) * 1000;
     return $time;
+}
+
+sub get_flake {
+
+    my $class = shift;
+
+    my $self = {};
+    bless $self, $class;
+
+    my $timestamp = $self->get_millisecond_timestamp;
+    my $random = $self->get_random;
+
+    use DDP;
+    p $random;
+
+    my $flake = ( $timestamp << SIMPLEFLAKE_TIMESTAMP_SHIFT ) + $random;
+
+    return $flake;
+}
+
+sub as_hex {
+
+    my ( $class, $flake ) = @_;
+
+    return pack( 'b', $flake );
 }
 
 1;

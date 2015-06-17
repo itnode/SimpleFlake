@@ -6,6 +6,6 @@ use SimpleFlake;
 
 my $timestamp = SimpleFlake->get_millisecond_timestamp;
 
-ok( $timestamp, "Timestamp Hex " . $timestamp . " was generated" );
+ok( $timestamp, "Timestamp " . $timestamp . " was generated" );
 
 done_testing;
