@@ -7,4 +7,5 @@ on 'test' => sub {
 requires 'Math::Random::ISAAC';
 requires 'Bytes::Random::Secure';
 requires 'Math::BigInt';
+requires 'Math::BigInt::GMP';
 requires 'Time::HiRes';

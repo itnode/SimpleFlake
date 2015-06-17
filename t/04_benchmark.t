@@ -7,13 +7,20 @@ use Benchmark;
 
 my $t0 = Benchmark->new;
 
-my $i = 10000;
+my $i = 100_000;
+
+my $collisions = {};
 
 for( 1 .. $i) {
 
     my $hex_flake = SimpleFlake->get_flake;
+    $collisions->{$hex_flake}++;
+
+    fail( 'collision detected for hex_flake' ) if $collisions->{$hex_flake} > 1;
 #    print $hex_flake."\n";
 }
+
+
 
 
 my $t1 = Benchmark->new;

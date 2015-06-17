@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Time::HiRes qw(time);
-use Math::BigInt;
+use Math::BigInt lib => 'GMP';
 use Bytes::Random::Secure qw(
   random_bytes random_bytes_base64 random_bytes_hex
 );
