@@ -22,4 +22,4 @@ it under the same terms as Perl itself.
 # AUTHOR
 
 - Jens Gassmann <jg@itnode.de>
-=item \* Patrick Simon <ps@itnode.de>
+- Patrick Simon <ps@itnode.de>

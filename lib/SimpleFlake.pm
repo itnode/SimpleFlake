@@ -77,6 +77,7 @@ it under the same terms as Perl itself.
 =over
 
 =item * Jens Gassmann E<lt>jg@itnode.deE<gt>
+
 =item * Patrick Simon E<lt>ps@itnode.deE<gt>
 
 =back
