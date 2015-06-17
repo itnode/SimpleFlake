@@ -3,29 +3,29 @@ use 5.008001;
 use strict;
 use warnings;
 
-use DateTime;
+use Time::HiRes qw(time);
+use Math::BigInt;
 use Bytes::Random::Secure qw(
-    random_bytes random_bytes_base64 random_bytes_hex
+  random_bytes random_bytes_base64 random_bytes_hex
 );
 
 our $VERSION = "0.01";
 
-use constant SIMPLEFLAKE_TIMESTAMP_LENGTH => 41;
-use constant SIMPLEFLAKE_RANDOM_LENGTH => 23;
-
-use constant SIMPLEFLAKE_RANDOM_SHIFT => 0;
-use constant SIMPLEFLAKE_TIMESTAMP_SHIFT => 23;
-
-sub get_random {
+sub get_random_bits {
 
     my ( $class, $length ) = @_;
 
-    return random_bytes($length);
+    my $random = Bytes::Random::Secure->new(
+        Bits => 64,
+        NonBlocking => 1,
+    );
+
+    return Math::BigInt->from_bin( unpack( 'B24', $random->bytes(3) ) );
 }
 
 sub get_millisecond_timestamp {
 
-    my $time = int(time) * 1000;
+    my $time = Math::BigInt->new(time * 100000);
     return $time;
 }
 
@@ -37,22 +37,14 @@ sub get_flake {
     bless $self, $class;
 
     my $timestamp = $self->get_millisecond_timestamp;
-    my $random = $self->get_random;
+    my $random = $self->get_random_bits;
 
-    use DDP;
-    p $random;
+    my $flake = $timestamp->blsft(41);
+    $flake->bior($random);
 
-    my $flake = ( $timestamp << SIMPLEFLAKE_TIMESTAMP_SHIFT ) + $random;
-
-    return $flake;
+    return $flake->as_hex;
 }
 
-sub as_hex {
-
-    my ( $class, $flake ) = @_;
-
-    return pack( 'b', $flake );
-}
 
 1;
 __END__

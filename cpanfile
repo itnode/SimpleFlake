@@ -5,4 +5,5 @@ on 'test' => sub {
 };
 
 requires 'Bytes::Random::Secure';
-requires 'DateTime';
+requires 'Math::BigInt';
+requires 'Time::HiRes';
