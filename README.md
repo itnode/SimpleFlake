@@ -10,7 +10,7 @@ SimpleFlake - A perl implemantation of SimpleFlake. Idea found here: https://git
 
 # DESCRIPTION
 
-SimpleFlake is a unique ID Generation Module
+SimpleFlake is a unique ID Generation Module based on timestamp in milliseconds and a part of randomness
 
 # LICENSE
 
