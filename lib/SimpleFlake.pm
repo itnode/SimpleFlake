@@ -9,7 +9,7 @@ use Bytes::Random::Secure qw(
   random_bytes random_bytes_base64 random_bytes_hex
 );
 
-our $VERSION = "0.02";
+our $VERSION = "0.03";
 
 sub get_random_bits {
 
