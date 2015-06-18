@@ -16,7 +16,7 @@ for( 1 .. $i) {
     my $hex_flake = SimpleFlake->get_flake;
     $collisions->{$hex_flake}++;
 
-    fail( 'collision detected for hex_flake' ) if $collisions->{$hex_flake} > 1;
+    fail( 'collision detected by run number ' . $_ .  ' for hex_flake: ' . $hex_flake ) if $collisions->{$hex_flake} > 1;
 #    print $hex_flake."\n";
 }
 
