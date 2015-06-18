@@ -43,7 +43,7 @@ sub get_flake {
     my $flake = $timestamp->blsft(23);
     $flake->bior($random);
 
-    return $flake->as_hex;
+    return substr( $flake->as_hex, 2);
 }
 
 
