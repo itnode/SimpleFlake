@@ -2,6 +2,11 @@ Revision history for Perl extension SimpleFlake
 
 {{$NEXT}}
 
+0.05 2015-06-19T13:25:10Z
+
+    - now µs-based Timestamp with 49bit width, to avoid collisions
+    
+
 0.04 2015-06-18T08:56:57Z
 
     - more detailed tests for collisions
