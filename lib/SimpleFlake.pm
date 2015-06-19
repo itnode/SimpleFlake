@@ -20,36 +20,30 @@ sub get_random_bits {
         NonBlocking => 1,
     );
 
-    return substr(Math::BigInt->from_bin( unpack( 'B*', $random->bytes(3) ) ), 0, 21 );
+    my $return =  Math::BigInt->from_bin( unpack( 'B*', $random->bytes(2) ) );
+
+    return $return;
 }
 
 sub get_millisecond_timestamp {
 
     my $epoch = 946702800;
-    my $time = Math::BigInt->new( int( ( time - $epoch ) * 1000 ));
 
+    my $time = Math::BigInt->new( int( ( time - $epoch ) * 1_000_000 ) );
     return $time;
 }
 
 sub get_flake {
 
-    my $class = shift;
+    my $self = shift;
 
-    my $timestamp = shift;
-    my $random = shift;
-    my $binary = shift;
+    my $timestamp = $self->get_millisecond_timestamp;
+    my $random = $self->get_random_bits;
 
-    my $self = {};
-    bless $self, $class;
-
-    $timestamp = $timestamp ? Math::BigInt->from_bin('0b'.$timestamp) : $self->get_millisecond_timestamp;
-    $random = $random ? Math::BigInt->from_bin('0b'.$random) : $self->get_random_bits;
-
-    my $flake = $timestamp->blsft(21);
+    my $flake = $timestamp->blsft(15);
     $flake->bior($random);
 
-    return substr( $flake->as_hex, 2) unless $binary;
-    return substr( $flake->as_bin, 2) if $binary;
+    return substr( $flake->as_hex, 2);
 }
 
 
