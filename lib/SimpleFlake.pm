@@ -26,7 +26,7 @@ sub get_random_bits {
 sub get_millisecond_timestamp {
 
     my $epoch = 946702800;
-    my $time = Math::BigInt->new( int( ( time - $epoch ) * 10000 ));
+    my $time = Math::BigInt->new( int( ( time - $epoch ) * 1000 ));
 
     return $time;
 }
