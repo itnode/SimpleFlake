@@ -11,16 +11,28 @@ use Bytes::Random::Secure qw(
 
 our $VERSION = "0.04";
 
+our $random;
+
+sub random {
+
+    my ($class) = @_;
+
+    unless ($random) {
+
+        $random = Bytes::Random::Secure->new(
+            Bits        => 64,
+            NonBlocking => 1,
+        );
+    }
+
+    return $random;
+}
+
 sub get_random_bits {
 
     my ( $class, $length ) = @_;
 
-    my $random = Bytes::Random::Secure->new(
-        Bits => 64,
-        NonBlocking => 1,
-    );
-
-    my $return =  Math::BigInt->from_bin( unpack( 'B*', $random->bytes(2) ) );
+    my $return = Math::BigInt->from_bin( unpack( 'B*', $class->random->bytes(2) ) );
 
     return $return;
 }
@@ -38,14 +50,13 @@ sub get_flake {
     my $self = shift;
 
     my $timestamp = $self->get_millisecond_timestamp;
-    my $random = $self->get_random_bits;
+    my $random    = $self->get_random_bits;
 
     my $flake = $timestamp->blsft(15);
     $flake->bior($random);
 
-    return substr( $flake->as_hex, 2);
+    return substr( $flake->as_hex, 2 );
 }
-
 
 1;
 __END__
