@@ -57,9 +57,9 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.05",
+   "version" : "0.06",
    "x_contributors" : [
       "Jens Gassmann <jens.gassmann@atomix.de>",
-      "Patrick Simon <pas.freelance@googlemail.com>"
+      "Patrick Kilter <pas.freelance@googlemail.com>"
    ]
 }
