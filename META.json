@@ -1,7 +1,7 @@
 {
    "abstract" : "A perl implemantation of SimpleFlake. Inspired by https://github.com/SawdustSoftware/simpleflake",
    "author" : [
-      "=over"
+      "=over 1"
    ],
    "dynamic_config" : 0,
    "generated_by" : "Minilla/v3.0.13, CPAN::Meta::Converter version 2.150005",
@@ -68,7 +68,7 @@
          "web" : "https://github.com/itnode/SimpleFlake"
       }
    },
-   "version" : "0.08",
+   "version" : "0.09",
    "x_contributors" : [
       "Jens Gassmann <jens.gassmann@atomix.de>",
       "Patrick Kilter <pas.freelance@googlemail.com>"
