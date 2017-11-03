@@ -2,6 +2,8 @@ Revision history for Perl extension SimpleFlake
 
 {{$NEXT}}
 
+0.07 2017-11-03T19:02:16Z
+
     - Fix to long flake id (time overflow)
 
 0.06 2015-10-27T19:57:09Z
