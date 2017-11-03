@@ -115,8 +115,6 @@ it under the same terms as Perl itself.
 
 =item * Jens Gassmann E<lt>jg@gassmann.itE<gt>
 
-=item * Patrick Simon
-
 =back
 
 =cut
