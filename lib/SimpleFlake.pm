@@ -12,6 +12,7 @@ use Bytes::Random::Secure qw(
 our $VERSION = "0.07";
 
 our $random;
+our @map = ( 0 .. 9, "A" .. "Z", "a" .. "z" );
 
 sub random {
 
@@ -58,20 +59,18 @@ sub get_flake {
     my $random    = $self->get_random_bits;
     my $pid       = $self->get_pid;
 
-    my $t = base36encode( $timestamp->as_int  );
-    my $r = base36encode( $random->as_int  );
-    my $p = base36encode( $pid->as_int  );
-    
-    my $x =  sprintf("%s%s%s", substr($t,-6), substr($p,-3), substr($r, -7));
-
-    return $x;
+    my $t = $timestamp->blsft(4) ;
+    my $r =  $t->bior($pid);
+    my $p = $t->blsft(32);
+    my $y = $p->bior($random);
+    my $a = base36encode($y->as_int);
+    return $a;
 }
 
 sub base36encode {
 
     my $number = shift;
 
-    my @map = ( 0 .. 9, "A" .. "Z", "a" .. "z" );
     my $output = "";
     my ( $q, $r );
 
