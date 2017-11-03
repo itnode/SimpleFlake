@@ -111,9 +111,9 @@ it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-=over
+=over 1
 
-=item * Jens Gassmann E<lt>jg@gassmann.itE<gt>
+=item Jens Gassmann E<lt>jg@gassmann.itE<gt>
 
 =back
 
