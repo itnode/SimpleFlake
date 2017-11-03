@@ -22,4 +22,3 @@ it under the same terms as Perl itself.
 # AUTHOR
 
 - Jens Gassmann <jg@gassmann.it>
-- Patrick Simon

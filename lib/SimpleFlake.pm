@@ -9,7 +9,7 @@ use Bytes::Random::Secure qw(
   random_bytes random_bytes_base64 random_bytes_hex
 );
 
-our $VERSION = "0.07";
+our $VERSION = "0.08";
 
 our $random;
 our @map = ( 0 .. 9, "A" .. "Z", "a" .. "z" );
