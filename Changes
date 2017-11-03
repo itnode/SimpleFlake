@@ -2,6 +2,8 @@ Revision history for Perl extension SimpleFlake
 
 {{$NEXT}}
 
+    - Fix to long flake id (time overflow)
+
 0.06 2015-10-27T19:57:09Z
 
     - Speedup with global use of Bytes Random

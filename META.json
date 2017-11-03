@@ -4,7 +4,7 @@
       "=over"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.4.1, CPAN::Meta::Converter version 2.150001",
+   "generated_by" : "Minilla/v3.0.13, CPAN::Meta::Converter version 2.150005",
    "license" : [
       "artistic_2"
    ],
@@ -57,9 +57,21 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.06",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/itnode/SimpleFlake/issues"
+      },
+      "homepage" : "https://github.com/itnode/SimpleFlake",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/itnode/SimpleFlake.git",
+         "web" : "https://github.com/itnode/SimpleFlake"
+      }
+   },
+   "version" : "0.07",
    "x_contributors" : [
       "Jens Gassmann <jens.gassmann@atomix.de>",
       "Patrick Kilter <pas.freelance@googlemail.com>"
-   ]
+   ],
+   "x_serialization_backend" : "JSON::PP version 2.27300"
 }

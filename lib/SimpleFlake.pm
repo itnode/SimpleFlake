@@ -9,7 +9,7 @@ use Bytes::Random::Secure qw(
   random_bytes random_bytes_base64 random_bytes_hex
 );
 
-our $VERSION = "0.06";
+our $VERSION = "0.07";
 
 our $random;
 
@@ -30,9 +30,9 @@ sub random {
 
 sub get_random_bits {
 
-    my ( $class, $length ) = @_;
+    my ( $class ) = @_;
 
-    my $return = Math::BigInt->from_bin( unpack( 'B*', $class->random->bytes(2) ) );
+    my $return = Math::BigInt->from_bin( unpack( 'B*', $class->random->bytes(8) ) );
 
     return $return;
 }
@@ -41,8 +41,13 @@ sub get_millisecond_timestamp {
 
     my $epoch = 946702800;
 
-    my $time = Math::BigInt->new( int( ( time - $epoch ) * 1_000_000 ) );
+    my $time = Math::BigInt->new( int( ( time - $epoch ) * 100_000_000 ) );
     return $time;
+}
+
+sub get_pid {
+
+    return Math::BigInt->new($$);
 }
 
 sub get_flake {
@@ -51,11 +56,32 @@ sub get_flake {
 
     my $timestamp = $self->get_millisecond_timestamp;
     my $random    = $self->get_random_bits;
+    my $pid       = $self->get_pid;
 
-    my $flake = $timestamp->blsft(15);
-    $flake->bior($random);
+    my $t = base36encode( $timestamp->as_int  );
+    my $r = base36encode( $random->as_int  );
+    my $p = base36encode( $pid->as_int  );
+    
+    my $x =  sprintf("%s%s%s", substr($t,-6), substr($p,-3), substr($r, -7));
 
-    return substr( $flake->as_hex, 2 );
+    return $x;
+}
+
+sub base36encode {
+
+    my $number = shift;
+
+    my @map = ( 0 .. 9, "A" .. "Z", "a" .. "z" );
+    my $output = "";
+    my ( $q, $r );
+
+    do {
+        ( $q, $r ) = ( int( $number / 62 ), $number % 62 );
+        $number /= 62;
+        $output = $map[$r] . $output;
+    } while ($q);
+
+    return $output;
 }
 
 1;
@@ -75,7 +101,7 @@ SimpleFlake - A perl implemantation of SimpleFlake. Inspired by https://github.c
 
 =head1 DESCRIPTION
 
-SimpleFlake is a unique ID Generation Module based on timestamp in milliseconds and a part of randomness
+SimpleFlake is a unique ID Generation Module based on timestamp in milliseconds, the pid and a part of randomness
 
 =head1 LICENSE
 
@@ -88,9 +114,9 @@ it under the same terms as Perl itself.
 
 =over
 
-=item * Jens Gassmann E<lt>jg@itnode.deE<gt>
+=item * Jens Gassmann E<lt>jg@gassmann.itE<gt>
 
-=item * Patrick Simon E<lt>ps@itnode.deE<gt>
+=item * Patrick Simon
 
 =back
 
