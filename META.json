@@ -68,7 +68,7 @@
          "web" : "https://github.com/itnode/SimpleFlake"
       }
    },
-   "version" : "0.09",
+   "version" : "0.10",
    "x_contributors" : [
       "Jens Gassmann <jens.gassmann@atomix.de>",
       "Patrick Kilter <pas.freelance@googlemail.com>"
