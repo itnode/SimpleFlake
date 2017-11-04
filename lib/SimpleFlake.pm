@@ -9,7 +9,7 @@ use Bytes::Random::Secure qw(
   random_bytes random_bytes_base64 random_bytes_hex
 );
 
-our $VERSION = "0.10";
+our $VERSION = "0.11";
 
 our $random;
 our @map = ( 0 .. 9, "A" .. "Z", "a" .. "z" );
@@ -64,7 +64,9 @@ sub get_flake {
     my $p = $t->blsft(32);
     my $y = $p->bior($random);
     my $a = base36encode($y->as_int);
-    return $a;
+
+    # Limit length to 16 chars
+    return substr($a,0, 16)
 }
 
 sub base36encode {

@@ -2,6 +2,10 @@ Revision history for Perl extension SimpleFlake
 
 {{$NEXT}}
 
+0.11 2017-11-04T12:09:10Z
+
+    Limit Length to 16 
+
 0.10 2017-11-04T11:04:38Z
 
     - Next try 
